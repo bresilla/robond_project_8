@@ -237,17 +237,17 @@ void ArmPlugin::onCollisionMsg(ConstContactsPtr &contacts)
 
 	
 		// TODO - TASK I
-		/*
+		/
 		if (strcmp(contacts->contact(i).collision1().c_str(), COLLISION_ITEM) == 0)
         {
 			rewardHistory = REWARD_WIN * 10;
 			newReward  = true;
 			endEpisode = true;
 			return;
-		}*/
+		}
 
 		// TODO - TASK II
-		
+		/*
 		if (strcmp(contacts->contact(i).collision1().c_str(), COLLISION_ITEM) == 0)
 		{
 			if (strcmp(contacts->contact(i).collision2().c_str(), COLLISION_POINT) == 0)
@@ -263,7 +263,7 @@ void ArmPlugin::onCollisionMsg(ConstContactsPtr &contacts)
 			endEpisode = true;
 
 			return;
-		}
+		}*/
 		
 	}
 }
