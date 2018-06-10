@@ -12,16 +12,16 @@
 
 // Turn on velocity based control
 #define VELOCITY_CONTROL false
-#define VELOCITY_MIN -0.1f
-#define VELOCITY_MAX  0.1f
+#define VELOCITY_MIN -0.2f
+#define VELOCITY_MAX  0.2f
 
 // Define DQN API Settings
 #define INPUT_CHANNELS 3
 #define ALLOW_RANDOM true
 #define DEBUG_DQN false
 #define GAMMA 0.9f
-#define EPS_START 0.9f
-#define EPS_END 0.01f
+#define EPS_START 0.7f
+#define EPS_END 0.02f
 #define EPS_DECAY 200
 
 
@@ -29,9 +29,9 @@
 #define INPUT_WIDTH   64
 #define INPUT_HEIGHT  64
 #define OPTIMIZER "RMSprop"
-#define LEARNING_RATE 0.05f
+#define LEARNING_RATE 0.1f
 #define REPLAY_MEMORY 10000
-#define BATCH_SIZE 64
+#define BATCH_SIZE 256
 #define USE_LSTM true
 #define LSTM_SIZE 256
 
@@ -57,7 +57,7 @@
 #define ANIMATION_STEPS 1000
 
 // Set Debug Mode
-#define DEBUG true
+#define DEBUG false
 
 // Lock base rotation DOF (Add dof in header file if off)
 #define LOCKBASE true
@@ -305,7 +305,7 @@ namespace gazebo
 					}
 			#endif
 				else{
-					rewardHistory = REWARD_LOSS + abs(100 * distGoal);
+					rewardHistory = 10 * REWARD_LOSS + abs(100 * distGoal);
 					newReward  = true;
 					endEpisode = true;
 					return;
