@@ -305,7 +305,7 @@ namespace gazebo
 					}
 			#endif
 				else{
-					rewardHistory = 10 * REWARD_LOSS + abs(100 * distGoal);
+					rewardHistory = 100 * REWARD_LOSS + abs(100 * distGoal);
 					newReward  = true;
 					endEpisode = true;
 					return;
@@ -348,9 +348,6 @@ namespace gazebo
 
 
 		#if VELOCITY_CONTROL
-			// if the action is even, increase the joint position by the delta parameter
-			// if the action is odd,  decrease the joint position by the delta parameter
-
 			// TODO - Increase or decrease the joint velocity based on whether the action is even or odd
 			float velocity = vel[action/2] + c * actionVelDelta;
 			if( velocity < VELOCITY_MIN )
@@ -379,7 +376,6 @@ namespace gazebo
 		#else
 			// TODO - Increase or decrease the joint position based on whether the action is even or odd
 			float joint = ref[action/2] + c * actionJointDelta;
-			// limit the joint to the specified range
 			if( joint < JOINT_MIN )
 				joint = JOINT_MIN;
 			
